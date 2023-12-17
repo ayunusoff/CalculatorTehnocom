@@ -14,7 +14,7 @@
         Percent = Div,
         Multiply = Div,
         Plus = 2,
-        Minus = 3,
+        Minus = Plus,
         Num = 0,
         FloatNum = 0,
     }

@@ -1,4 +1,5 @@
-﻿using CalculatorTehnocom.Tokenizers;
+﻿using CalculatorTehnocom.Parsers;
+using CalculatorTehnocom.Tokenizers;
 using CalculatorTehnocom.Tokenizers.TokenReaders;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,5 +21,11 @@ namespace CalculatorTehnocom
             return services;
         }
 
+        public static IServiceCollection AddParser(this IServiceCollection services)
+        {
+            services.AddSingleton<IParser, RpnParser>();
+
+            return services;
+        }
     }
 }
