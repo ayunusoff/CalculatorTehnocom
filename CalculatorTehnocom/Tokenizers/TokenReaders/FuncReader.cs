@@ -11,14 +11,24 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
         {
             var valueToken = new StringBuilder();
 
-            while (stringReader.Peek() != -1 && (char)stringReader.Peek() != ')')
+            while (stringReader.Peek() != -1 && (char)stringReader.Peek() != '(' && CanRead((char)stringReader.Peek()))
             {
                 valueToken.Append((char)stringReader.Read());
             }
 
-            valueToken.Append((char)stringReader.Read());
+            var valueTokenStr = valueToken.ToString();
 
-            return new Token(TokenType.Func, valueToken.ToString());
+            var elementType = valueTokenStr switch
+            {
+                "pow" => ElementType.Pow,
+                "sin" => ElementType.Sin,
+                "cos" => ElementType.Cos,
+                "tan" or "tg" => ElementType.Tg,
+                "ctg" or "cot" => ElementType.Ctg,
+                _ => throw new NotSupportedException($"Функия {valueTokenStr} пока что не работает")
+            };
+
+            return new Token(TokenType.Func, valueToken.ToString(), elementType);
         }
     }
 }

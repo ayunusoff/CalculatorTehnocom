@@ -16,7 +16,11 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
                 valueToken.Append((char)stringReader.Read());
             }
 
-            return new Token(TokenType.Num, valueToken.ToString());
+            var valueTokenStr = valueToken.ToString();
+
+            var elementType = valueTokenStr.Any(IsPunctuation) ? ElementType.FloatNum : ElementType.Num;
+
+            return new Token(TokenType.Num, valueTokenStr, elementType);
         }
 
         private bool IsPunctuation(char v)
