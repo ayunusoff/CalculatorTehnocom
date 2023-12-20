@@ -14,8 +14,20 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
 
         public Token Read(StringReader stringReader)
         {
-            var sym = (char) stringReader.Read();
-            return new Token(TokenType.Operation, sym.ToString());
+            var sym = ((char)stringReader.Read()).ToString();
+
+            var elementType = sym switch
+            {
+                "*" => ElementType.Multiply,
+                "/" => ElementType.Div,
+                "+" => ElementType.Plus,
+                "-" => ElementType.Minus,
+                "!" => ElementType.Fact,
+                "%" => ElementType.Percent,
+                _ => throw new Exception($"{sym}")
+            };
+
+            return new Token(TokenType.Operation, sym, elementType);
         }
     }
 }
