@@ -5,7 +5,7 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
     public class FuncReader : ITokenReader
     {
         public bool CanRead(char sym)
-            => char.IsLetter(sym);
+            => char.IsLetter(sym) || sym == '!';
 
         public Token Read(StringReader stringReader)
         {
@@ -25,6 +25,7 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
                 "cos" => ElementType.Cos,
                 "tan" or "tg" => ElementType.Tg,
                 "ctg" or "cot" => ElementType.Ctg,
+                "!" => ElementType.Fact,
                 _ => throw new NotSupportedException($"Функия {valueTokenStr} пока что не работает")
             };
 

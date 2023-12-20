@@ -13,11 +13,11 @@
             ElementType = elementType;
         }
 
-        public TokenType Type { get; set; }
+        public TokenType Type { get; }
 
-        public string Value { get; set; }
+        public string Value { get; }
 
-        public ElementType ElementType { get; set; }
+        public ElementType ElementType { get; }
 
         public bool Equals(Token other)
         {
@@ -33,5 +33,9 @@
             return obj.GetType() == GetType() && Equals((Token)obj);
         }
 
+        public override string ToString()
+        {
+            return Value;
+        }
     }
 }
