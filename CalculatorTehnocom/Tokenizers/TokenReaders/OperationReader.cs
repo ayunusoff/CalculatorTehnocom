@@ -7,10 +7,9 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
         public bool CanRead(char sym)
             => IsMathOp(sym);
 
-        private bool IsMathOp(char sym) => sym == '*' 
-            || sym == '/' || sym == '%' 
-            || sym == '+' || sym == '-'
-            || sym == '!';
+        private bool IsMathOp(char sym) => sym == '*'
+            || sym == '/' || sym == '%'
+            || sym == '+' || sym == '-';
 
         public Token Read(StringReader stringReader)
         {
@@ -22,7 +21,6 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
                 "/" => ElementType.Div,
                 "+" => ElementType.Plus,
                 "-" => ElementType.Minus,
-                "!" => ElementType.Fact,
                 "%" => ElementType.Percent,
                 _ => throw new Exception($"{sym}")
             };

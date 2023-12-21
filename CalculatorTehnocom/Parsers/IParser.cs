@@ -1,9 +1,10 @@
-﻿using CalculatorTehnocom.Tokenizers;
+﻿using CalculatorTehnocom.Parsers.CalclulationNodes;
+using CalculatorTehnocom.Tokenizers;
 
 namespace CalculatorTehnocom.Parsers
 {
     public interface IParser
     {
-        void Parse(IEnumerable<Token> tokens);
+        IEnumerable<CalculationNode> Parse(IEnumerable<Token> tokens);
     }
 }

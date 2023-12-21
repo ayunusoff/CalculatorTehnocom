@@ -24,6 +24,6 @@ namespace CalculatorTehnocom.Tokenizers.TokenReaders
         }
 
         private bool IsPunctuation(char v)
-            => v == '.' || v == ',';
+            => v == '.';
     }
 }

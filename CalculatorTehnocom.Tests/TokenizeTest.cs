@@ -39,7 +39,7 @@ namespace CalculatorTehnocom.Tests
                     new Token(TokenType.Num, "1", ElementType.Num),
                     new Token(TokenType.Operation, "*", ElementType.Multiply),
                     new Token(TokenType.Num, "12", ElementType.Num),
-                    new Token(TokenType.Operation, "!", ElementType.Fact),
+                    new Token(TokenType.Func, "!", ElementType.Fact),
                     new Token(TokenType.Operation, "%", ElementType.Percent),
                     new Token(TokenType.Num, "3.21", ElementType.FloatNum),
                     new Token(TokenType.Brace, ")", ElementType.RBracket)

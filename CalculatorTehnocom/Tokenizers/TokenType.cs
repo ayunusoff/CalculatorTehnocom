@@ -5,6 +5,7 @@
         Num,
         Operation,
         Brace,
-        Func
+        Func,
+        Delimeter
     }
 }
