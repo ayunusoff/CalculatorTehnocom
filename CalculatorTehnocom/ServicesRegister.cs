@@ -27,5 +27,23 @@ namespace CalculatorTehnocom
 
             return services;
         }
+
+        public static IServiceCollection RpnCalculation(this IServiceCollection services)
+        {
+            foreach (var tokenReader in typeof(ServicesRegister).Assembly.GetTypes()
+                .Where(t => !t.IsAbstract && t.IsAssignableTo(typeof(ITokenReader)))
+            )
+            {
+                services.AddSingleton(typeof(ITokenReader), tokenReader);
+            }
+
+            services.AddSingleton<ITokenizer, Tokenizer>();
+
+            services.AddSingleton<IParser, RpnParser>();
+
+            services.AddSingleton<ICalculationContext, RpnCalculationContext>();
+
+            return services;
+        }
     }
 }
